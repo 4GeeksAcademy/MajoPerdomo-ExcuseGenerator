@@ -1,11 +1,5 @@
-/* eslint-disable */
-import "bootstrap";
-import "./style.css";
-
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
-window.onload = function() {
+const newExcuse = document.querySelector("#newExcuse");
+const GenerarExcusa = () => {
   let who = ["The dog", "My grandma", "His turtle", "My bird"];
   let action = ["ate", "peed", "crushed", "broke"];
   let what = ["my homework", "the keys", "the car"];
@@ -23,8 +17,12 @@ window.onload = function() {
   let randomWhen = when[Math.floor(Math.random() * when.length)];
 
   let excusaAleatoria = `${randomWho} ${randomAction} ${randomWhat} ${randomWhen}.`;
-
-  document.getElementById("excuse").innerHTML = excusaAleatoria;
+  return excusaAleatoria;
 };
 
-console.log("Hello Rigo from the console!");
+window.onload = function() {
+  document.getElementById("excuse").innerHTML = GenerarExcusa();
+};
+newExcuse.addEventListener("click", () => {
+  document.getElementById("excuse").innerHTML = GenerarExcusa();
+});
